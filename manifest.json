@@ -1,7 +1,7 @@
 {
   "manifest_version": 2,
   "name": "Auto Local Only for Mastodon Glitch-Edition",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "description": "自動的に「ローカル限定」スイッチをONにする。Based on called_D 's work",
   "content_scripts": [
     {

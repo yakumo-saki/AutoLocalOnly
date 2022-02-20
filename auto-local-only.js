@@ -9,10 +9,22 @@ const toggleOffDoNotFederate = async () => {
         await sleep(200)
     }
 
-    const toggleSwitch = document.querySelector('[data-index="do_not_federate"]')
-    if (!toggleSwitch.classList.contains('active')) {
-        toggleSwitch.click()
-        await sleep(300)
+    let toggleSwitch = document.querySelector('[data-index="do_not_federate"]')
+    if (toggleSwitch != null) {
+        // before v3.4.6
+        if (!toggleSwitch.classList.contains('active')) {
+            toggleSwitch.click()
+            await sleep(300)
+        }
+    } else {
+        // after v3.4.6
+        // .composer--options--dropdown--content => drop-down
+        // .react-toggle => toggle button. local-only thread-mode
+        toggleSwitch = document.querySelector(".composer--options--dropdown--content .react-toggle")
+        if (!toggleSwitch.classList.contains('react-toggle--checked')) {
+            toggleSwitch.click()
+            await sleep(300)
+        }
     }
 
     if (!menuActive) {
